@@ -108,7 +108,7 @@ int ipcs_get_sem(key_t key);
 int ipcs_semctl(int sem_id);
 
 /**
- * Action P ont semaphore (take)
+ * Action P on semaphore (take)
  * 
  * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
  * nb_sem: the amount of semaphore that must be taken (positive value)
@@ -116,7 +116,7 @@ int ipcs_semctl(int sem_id);
 int ipcs_sem_P(int sem_id, int nb_sem);
 
 /**
- * Action V ont semaphore (release)
+ * Action V on semaphore (release)
  * 
  * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
  * nb_sem: the amount of semaphore that must be released (positive value)
