@@ -1,4 +1,4 @@
-[Main menu](../../Readme.md)->[doc](../ipcs-doc.md)
+[Main menu](../../Readme.md)->[doc](../IPCS-doc.md)
 
 # ipcs_shmat(\_)
 
