@@ -101,7 +101,7 @@ int ipcs_create_sem(key_t key, int nb_sem);
 int ipcs_get_sem(key_t key);
 /**
  * Delete a semaphore
- * (semctl(teams_sem_id, 0, IPC_RMID, NULL))
+ * (semctl(sem_id, 0, IPC_RMID, NULL))
  * 
  * sem_id: gotten by ipcs_create_sem
 */

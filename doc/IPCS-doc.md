@@ -19,7 +19,7 @@ Retreive a key. [More here.](./functions/ipcs_create_key.md)
 ```C
 int ipcs_create_shm(key_t, size_t)
 ```
-Create a shared memory. [More here.](./functions/ipcs_create_shm.md)
+Create a shared memory segment. [More here.](./functions/ipcs_create_shm.md)
 
 ```C
 int ipcs_get_shm(key_t)
@@ -34,7 +34,7 @@ Attach the shared memory segment. [More here.](./functions/ipcs_shmat.md)
 ```C
 int ipcs_shmdt(void *)
 ```
-Detach the chared memory segment. [More here.](./functions/ipcs_shmdt.md)
+Detach the shared memory segment. [More here.](./functions/ipcs_shmdt.md)
 
 ```C
 int ipcs_shmctl(int)

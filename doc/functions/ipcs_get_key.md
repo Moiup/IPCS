@@ -1,13 +1,13 @@
 [Main menu](../../Readme.md)->[doc](../ipcs-doc.md)
 
-# ipcs_create_key(\_,\_)
+# ipcs_get_key(\_,\_)
 
-Create a key.
+Retreive a key.
 
 ## **Declaration**
 
 ```C
-key_t ipcs_create_key(
+key_t ipcs_get_key(
                     char *key_name,
                     int key_code
                 )
@@ -15,10 +15,10 @@ key_t ipcs_create_key(
 
 ## **Parameters**
 **key_name**  
-The name of the key file. The key file is created if does not already exist.
+The name of the key file.
 
 **key_code**  
-The code to associate to the key.
+The code associated to the key.
 
 ## **Result**
-Create and return the key, `IPCS_NO_VAL` otherwise.
+Return the key if it exists, `IPCS_NO_VAL` otherwise.
