@@ -21,4 +21,4 @@ The ipc key. Created with [`ipcs_create_key`](ipcs_create_key.md) or retrieved w
 The size of the shared memory to create.
 
 ## **Result**
-Create and return the shared memory id, `NULL` if failed.
+Create and return the shared memory id, `IPCS_NO_VAL` if failed.
