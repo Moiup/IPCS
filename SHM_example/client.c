@@ -1,7 +1,7 @@
 /**
  * Name: client.c
  *
- * Description: A example of a script getting ipcs and using them.
+ * Description: A example of a script getting shm and using it.
  *
  * Creation date: 17/11/2020
  *

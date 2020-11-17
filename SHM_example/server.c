@@ -1,7 +1,7 @@
 /**
  * Name: server.c
  *
- * Description: A example of a script creating ipcs and using them.
+ * Description: A example of a script creating shm and using it.
  *
  * Creation date: 17/11/2020
  *

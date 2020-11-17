@@ -1,3 +1,4 @@
+[Main menu](../../Readme.md)
 # **Shared Memory example**
 
 This is an example to show how the function works for shared memory segment. There are three files: `server_info.h`, `server.c` and `client.c`.
@@ -46,7 +47,7 @@ Creates the shared memory, initialises it, displayt its value, forks the client 
 /**
  * Name: server.c
  *
- * Description: A example of a script creating ipcs and using them.
+ * Description: A example of a script creating shm and using it.
  *
  * Creation date: 17/11/2020
  *
@@ -154,7 +155,7 @@ Retrieve le shm created by the server, display its value, change the first 'm' i
 /**
  * Name: client.c
  *
- * Description: A example of a script getting ipcs and using them.
+ * Description: A example of a script getting shm and using it.
  *
  * Creation date: 17/11/2020
  *
