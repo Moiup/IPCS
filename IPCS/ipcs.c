@@ -150,18 +150,18 @@ int ipcs_shmctl(int shm_id)
 
 /**
  * key: gotten with ipcs_create_key 
- * nb_sem: the amount of semaphore wanted
+ * sem_size: the size of the set of semaphore
  * 
- * Return the semaphore id, IPCS_NO_VAL if failed
+ * Return the semaphore set id, IPCS_NO_VAL if failed
  * (semget(key, nb_sem, IPC_CREAT | IPC_EXCL))
 */
-int ipcs_create_sem(key_t key, int nb_sem)
+int ipcs_create_sem(key_t key, int sem_size)
 {
-    return semget(key, nb_sem, IPC_CREAT | IPC_EXCL);
+    return semget(key, sem_size, IPC_CREAT | IPC_EXCL | 0660);
 }
 
 /**
- * Get an existing semaphore
+ * Get an existing set of semaphore
  * (semget(key, 0, 0))
  * 
  * key: gotten by ipcs_get_key
@@ -172,18 +172,29 @@ int ipcs_get_sem(key_t key)
 }
 
 /**
- * Delete a semaphore
+ * Create semaphore inside a set of semaphore
+ * nb_sem: the number of semaphore to create
+ * 
+ * key: gotten by ipcs_get_key
+*/
+int ipcs_sem_set(int sem_id, int nb_sem)
+{
+    return semctl(sem_id, 0, SETVAL, nb_sem);
+}
+
+/**
+ * Delete a set of semaphore
  * (semctl(teams_sem_id, 0, IPC_RMID, NULL))
  * 
  * sem_id: gotten by ipcs_create_sem
 */
-int ipcs_semctl(int sem_id)
+int ipcs_sem_rm(int sem_id)
 {
     return semctl(sem_id, 0, IPC_RMID, NULL);
 }
 
 /**
- * Action P ont semaphore (take)
+ * Action P on semaphore (take)
  * 
  * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
  * nb_sem: the amount of semaphore that must be taken (positive value)
@@ -196,7 +207,7 @@ int ipcs_sem_P(int sem_id, int nb_sem)
 }
 
 /**
- * Action V ont semaphore (release)
+ * Action V on semaphore (release)
  * 
  * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
  * nb_sem: the amount of semaphore that must be released (positive value)
