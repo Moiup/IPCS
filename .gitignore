@@ -1,1 +1,7 @@
 *.o
+SEM_example/client
+SEM_example/server
+SEM_example/file.serv
+SHM_example/client
+SHM_example/server
+SHM_example/file.serv
