@@ -9,6 +9,8 @@ You can find the complete example and its `Makefile` in the folder `SHM_example`
 
 The example here might seems silly, but it just here to show how the functions related to semaphores work. Of course, we can think of more complex application by using semaphore in order to access shared memory segment.
 
+### **Result**
+The output must be pair of messages with the same pid. Here an example:
 ```
 (client, main) Pocess 22091 got the sem. Waiting 1 second.
 (client, main) Process 22091 releasing the sem.

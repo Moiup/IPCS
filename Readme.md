@@ -14,3 +14,4 @@ To discover more, here is the [doc](doc/IPCS-doc.md).
 
 You can check for some example to see how everything is used.
 - [shared memory](doc/examples/shm_example.md)
+- [semaphore](doc/examples/sem_example.md)
