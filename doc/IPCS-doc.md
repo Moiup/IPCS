@@ -46,24 +46,29 @@ Delete a shared memory. [More here.](./functions/ipcs_shmctl.md)
 ```C
 int ipcs_create_sem(key_t, int)
 ```
-Create a semaphore. [More here.](./functions/ipcs_create_sem.md)
+Create a set of semaphore. [More here.](./functions/ipcs_create_sem.md)
 
 ```C
 int ipcs_get_sem(key_t)
 ```
-Retreive an existing semaphore. [More here.](./functions/ipcs_get_sem.md)
+Retreive an existing set of semaphore. [More here.](./functions/ipcs_get_sem.md)
 
 ```C
-int ipcs_semctl(int)
+int ipcs_sem_set(int, int)
 ```
-Delete a semaphore. [More here.](./functions/ipcs_semctl.md)
+Set the number of semaphore inside a set of semaphore. [More here.](./functions/ipcs_sem_set.md)
+
+```C
+int ipcs_sem_rm(int)
+```
+Delete a set of semaphore. [More here.](./functions/ipcs_sem_rm.md)
 
 ```C
 int ipcs_sem_P(int, int)
 ```
-Action P on semaphore (take). [More here.](./functions/ipcs_sem_P.md)
+Action P on a set (take). [More here.](./functions/ipcs_sem_P.md)
 
 ```C
 int ipcs_sem_V(int, int)
 ```
-Action V on semaphore (release). [More here.](./functions/ipcs_sem_V.md)
+Action V on a set (release). [More here.](./functions/ipcs_sem_V.md)

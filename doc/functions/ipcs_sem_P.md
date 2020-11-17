@@ -2,7 +2,7 @@
 
 # ipcs_shmdt(\_)
 
-Action P on semaphore (take).
+Action P on a set of semaphore (take).
 
 ## **Declaration**
 

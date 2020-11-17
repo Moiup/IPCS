@@ -2,7 +2,7 @@
 
 # ipcs_get_shm(\_)
 
-Retrieve semaphore.
+Retrieve a set of semaphore.
 
 ## **Declaration**
 
@@ -14,7 +14,7 @@ int ipcs_get_sem(
 
 ## **Parameters**
 **key**  
-The ipc key associated to the semaphore. Created with [`ipcs_create_key`](ipcs_create_key.md) or retrieved with [`ipcs_get_key`](ipcs_get_key.md).
+The ipc key associated to the set of semaphore. Created with [`ipcs_create_key`](ipcs_create_key.md) or retrieved with [`ipcs_get_key`](ipcs_get_key.md).
 
 
 ## **Result**

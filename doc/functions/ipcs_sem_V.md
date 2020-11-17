@@ -2,7 +2,7 @@
 
 # ipcs_shmdt(\_)
 
-Action V on semaphore (release).
+Action V on a set of semaphore (release).
 
 ## **Declaration**
 

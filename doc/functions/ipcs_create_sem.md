@@ -2,14 +2,14 @@
 
 # ipcs_create_sem(\_,\_)
 
-
+Create a set of semaphore.
 
 ## **Declaration**
 
 ```C
 int ipcs_create_sem(
                     key_t key,
-                    int nb_sem
+                    int sem_size
                 )
 ```
 
@@ -17,8 +17,8 @@ int ipcs_create_sem(
 **key**  
 The ipc key. Created with [`ipcs_create_key`](ipcs_create_key.md) or retrieved with [`ipcs_get_key`](ipcs_get_key.md).
 
-**nb_sem**  
-The number of semaphore to create.
+**sem_size**  
+The size of the set of semaphore.
 
 ## **Result**
 Return the semaphore id, `IPCS_NO_VAL` if failed.
