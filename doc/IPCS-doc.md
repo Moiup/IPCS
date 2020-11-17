@@ -1,6 +1,6 @@
 [Main menu](../Readme.md)
 
-# easySocket
+# IPCS
 
 ## **Key creation**
 
