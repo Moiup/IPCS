@@ -1,3 +1,12 @@
+/**
+ * Name: client.c
+ *
+ * Description: A example of a script getting a set of semaphore and using it.
+ *
+ * Creation date: 17/11/2020
+ *
+ * Author: Mohammed-Bashir Mahdi
+ */
 #include "server_info.h"
 
 

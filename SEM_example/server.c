@@ -1,3 +1,12 @@
+/**
+ * Name: server.c
+ *
+ * Description: A example of a script creating a set of semaphore.
+ *
+ * Creation date: 17/11/2020
+ *
+ * Author: Mohammed-Bashir Mahdi
+ */
 #include "server_info.h"
 
 

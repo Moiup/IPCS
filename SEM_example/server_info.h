@@ -1,3 +1,13 @@
+/**
+ * Name: server_info.h
+ *
+ * Description: Constant and include declaration.
+ *
+ * Creation date: 17/11/2020
+ *
+ * Author: Mohammed-Bashir Mahdi
+ */
+
 #include "../IPCS/ipcs.h"
 #include <unistd.h>
 
