@@ -23,6 +23,8 @@ int main(int argc, char **argv, char **envp)
     char *shm;
     int pid;
 
+    int statut;
+
     /*********************/
     /* Key               */
     /*********************/
@@ -83,7 +85,7 @@ int main(int argc, char **argv, char **envp)
     /* Ending                      */
     /*******************************/
     // Waiting for the client to end
-    waitpid(NO_VAL, NULL, 0);
+    waitpid(NO_VAL, &statut, 0);
 
     // Printing shm content
     fprintf(stdout, "(server, main) Shared memory content: %s.\n", shm);
