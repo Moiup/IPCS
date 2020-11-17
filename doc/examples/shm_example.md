@@ -4,6 +4,8 @@ This is an example to show how the function works for shared memory segment. The
 
 It works like so: a server create a shared memory (a string of size 5) and fullfills it with 'm'. Then, it forks a child (client), which change the first 'm' into an 'H'.
 
+You can find the complete example and its `Makefile` in the folder `SHM_example`.
+
 ### **Result**
 The program should display this:
 
