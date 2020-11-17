@@ -12,5 +12,5 @@ ipcs.o:../IPCS/ipcs.h ../IPCS/ipcs.c
 	$(CC) $(FLAG_2) ../IPCS/ipcs.c -o ipcs.o
 
 clean:
-	rm -rf *.o server.file
+	rm -rf *.o server.file server client
 
