@@ -7,4 +7,4 @@ This library covers:
 - shared memory segment
 - semaphore
 
-To discover more, go see the [doc](doc/IPCS-doc.md).
+To discover more, here is the [doc](doc/IPCS-doc.md).
