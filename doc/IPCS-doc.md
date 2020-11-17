@@ -12,7 +12,7 @@ Create a key. [More here.](./functions/ipcs_create_key.md)
 ```C
 key_t ipcs_get_key(char *, int)
 ```
-Retreive a key. [More here.](./functions/ipcs_create_key.md)
+Retreive a key. [More here.](./functions/ipcs_get_key.md)
 
 ## **Shared memory**
 
