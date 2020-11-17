@@ -8,3 +8,9 @@ This library covers:
 - semaphore
 
 To discover more, here is the [doc](doc/IPCS-doc.md).
+
+
+## **Examples**
+
+You can check for some example to see how everything is used.
+- [shared memory](doc/examples/shm_example.md)
