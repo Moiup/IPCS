@@ -117,7 +117,7 @@ int main(int argc, char **argv, char **envp)
     /* Semaphore       */
     /*******************/
     // Creating and initialising the number of semaphore
-    sem_id = ipcs_create_sem(key, 1);
+    sem_id = ipcs_create_sem(key, NB_SEM);
     if(sem_id == IPCS_NO_VAL)
     {
         fprintf(stdout, "(server, main) Error creating the semaphore.\n");
