@@ -88,15 +88,7 @@ key_t ipcs_get_key(char *key_name, int key_code)
 */
 int ipcs_create_shm(key_t key, size_t size)
 {
-    int shm_id;
-
-    shm_id = shmget(key, size, IPC_CREAT | IPC_EXCL | 0660);
-    if (shm_id == IPCS_NO_VAL)
-    {
-        return IPCS_NO_VAL;
-    }
-
-    return shm_id;
+    return shmget(key, size, IPC_CREAT | IPC_EXCL | 0660);
 }
 
 /**
