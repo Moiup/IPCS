@@ -2,7 +2,7 @@
 
 # ipcs_create_shm(\_,\_)
 
-Create a shared memory segment.
+Create a shared memory segment. Mask of `shmget(key, size, IPC_CREAT | IPC_EXCL | 0660)`.
 
 ## **Declaration**
 

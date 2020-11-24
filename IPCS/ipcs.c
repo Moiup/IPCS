@@ -83,7 +83,7 @@ key_t ipcs_get_key(char *key_name, int key_code)
  * key: gotten with ipcs_create_key
  * size : the size of the shm
  * 
- * Create and return the SHM id, NULL otherwise
+ * Create and return the SHM id, IPCS_NO_VAL otherwise
  * (shmget(key, size, IPC_CREAT | IPC_EXCL | 0660))
 */
 int ipcs_create_shm(key_t key, size_t size)
