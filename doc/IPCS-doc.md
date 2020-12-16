@@ -54,9 +54,19 @@ int ipcs_get_sem(key_t)
 Retreive an existing set of semaphore. [More here.](./functions/ipcs_get_sem.md)
 
 ```C
-int ipcs_sem_set(int, int)
+int ipcs_sem_setAll(int, int, int)
 ```
-Set the number of semaphore inside a set of semaphore. [More here.](./functions/ipcs_sem_set.md)
+Set all the semaphore of a set to the same value. [More here.](./functions/ipcs_sem_setAll.md)
+
+```C
+int ipcs_sem_setVal(int, int, int)
+```
+Set the value of a given semaphore from a given set. [More here.](./functions/ipcs_sem_setVal.md)
+
+```C
+int ipcs_sem_getVal(int, int)
+```
+Retrieve the value of a given semaphore from a given set.
 
 ```C
 int ipcs_sem_rm(int)
