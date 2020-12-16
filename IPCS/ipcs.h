@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include <sys/sem.h>
@@ -141,15 +142,17 @@ int ipcs_sem_rm(int sem_id);
 /**
  * Action P on semaphore (take)
  * 
- * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
- * nb_sem: the amount of semaphore that must be taken (positive value)
+ * sem_id: the id of the set of semaphore (gotten by ipcs_get_sem or ipcs_create_sem)
+ * sem_i: the index of the sempahore to take
+ * n: how much it is going to be decreased (positive value)
 */
-int ipcs_sem_P(int sem_id, int nb_sem);
+int ipcs_sem_P(int sem_id, int sem_i, int n);
 
 /**
  * Action V on semaphore (release)
  * 
- * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
- * nb_sem: the amount of semaphore that must be released (positive value)
+ * sem_id: the id of the set of semaphore (gotten by ipcs_get_sem or ipcs_create_sem)
+ * sem_i: the index of the sempahore to take
+ * n: how much it is going to be increased (positive value)
 */
-int ipcs_sem_V(int sem_id, int nb_sem);
+int ipcs_sem_V(int sem_id, int sem_i, int n);

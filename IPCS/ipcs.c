@@ -174,15 +174,15 @@ int ipcs_get_sem(key_t key)
 int ipcs_sem_setAll(int sem_id, int val, int nb_sem)
 {
     int shmctl_ret;
-    ushort *tab = (ushort *)malloc(nb_sem * sizeof(ushort));
+    unsigned short *tab = (unsigned short *)malloc(nb_sem * sizeof(unsigned short));
     if(tab == NULL)
     {
         return IPCS_NO_VAL;
     }
 
-    memset(tab, val, sem_set_size);
+    memset(tab, val, nb_sem * sizeof(unsigned short));
     shmctl_ret = semctl(sem_id, val, SETALL, tab);
-    free(tab)
+    free(tab);
 
     return shmctl_ret;
 }
@@ -225,12 +225,13 @@ int ipcs_sem_rm(int sem_id)
 /**
  * Action P on semaphore (take)
  * 
- * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
- * nb_sem: the amount of semaphore that must be taken (positive value)
+ * sem_id: the id of the set of semaphore (gotten by ipcs_get_sem or ipcs_create_sem)
+ * sem_i: the index of the sempahore to take
+ * n: how much it is going to be decreased (positive value)
 */
-int ipcs_sem_P(int sem_id, int nb_sem)
+int ipcs_sem_P(int sem_id, int sem_i, int n)
 {
-    struct sembuf P = {IPCS_NONE, -nb_sem, SEM_UNDO};
+    struct sembuf P = {sem_i, -n, SEM_UNDO};
     
     return semop(sem_id, &P, IPCS_SEM_NB_OP);
 }
@@ -238,12 +239,13 @@ int ipcs_sem_P(int sem_id, int nb_sem)
 /**
  * Action V on semaphore (release)
  * 
- * sem_id: gotten by ipcs_get_sem or ipcs_create_sem
- * nb_sem: the amount of semaphore that must be released (positive value)
+ * sem_id: the id of the set of semaphore (gotten by ipcs_get_sem or ipcs_create_sem)
+ * sem_i: the index of the sempahore to take
+ * n: how much it is going to be increased (positive value)
 */
-int ipcs_sem_V(int sem_id, int nb_sem)
+int ipcs_sem_V(int sem_id, int sem_i, int n)
 {
-    struct sembuf V = {IPCS_NONE, nb_sem, SEM_UNDO};
+    struct sembuf V = {sem_i, n, SEM_UNDO};
     
     return semop(sem_id, &V, IPCS_SEM_NB_OP);
 }
