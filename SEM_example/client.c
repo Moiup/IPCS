@@ -37,8 +37,9 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    // Taking the semaphore to perform action
+    // Taking the semaphore
     ipcs_sem_P(sem_id, NB_SEM_P);
+    // Doing some action
     fprintf(stdout, "(client, main) Pocess %d got the sem. Waiting %d second.\n", getpid(), TIME_TO_WAIT);
     sleep(TIME_TO_WAIT);
     fprintf(stdout, "(client, main) Process %d releasing the sem.\n\n", getpid());

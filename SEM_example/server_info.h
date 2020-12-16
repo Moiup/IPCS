@@ -19,7 +19,7 @@
 #define NO_VAL -1
 
 #define NB_SEM 1
-#define SEM_VAL 1
+#define INIT_SEM_VAL 1
 #define NB_SEM_P 1
 #define NB_SEM_V 1
 
