@@ -73,7 +73,7 @@ Constant and includes shared between the two programs: client and server.
 The server creates the set of semaphore and put one semaphore in it. The it creates 5 children and waits for them to finish their task. Finaly, in remove the set of semaphore.
 
 ```C
-/**
+//**
  * Name: server.c
  *
  * Description: A example of a script creating a set of semaphore.
@@ -125,7 +125,7 @@ int main(int argc, char **argv, char **envp)
     }
 
     // Setting the semaphore
-    if(ipcs_sem_set(sem_id, SEM_VAL) == IPCS_NO_VAL)
+    if(ipcs_sem_setAll(sem_id, 1, 1) == IPCS_NO_VAL)
     {
         fprintf(stdout, "(server, main) Error setting the semaphore.\n");
         exit(EXIT_FAILURE);
@@ -216,13 +216,14 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    // Taking the semaphore to perform action
-    ipcs_sem_P(sem_id, NB_SEM_P);
+    // Taking the semaphore
+    ipcs_sem_P(sem_id, FIRST_SEM, NB_SEM_P);
+    // Doing some action
     fprintf(stdout, "(client, main) Pocess %d got the sem. Waiting %d second.\n", getpid(), TIME_TO_WAIT);
     sleep(TIME_TO_WAIT);
     fprintf(stdout, "(client, main) Process %d releasing the sem.\n\n", getpid());
     // Releasing the semaphore
-    ipcs_sem_V(sem_id, NB_SEM_V);
+    ipcs_sem_V(sem_id, FIRST_SEM, NB_SEM_V);
 
 
     /*******************/
