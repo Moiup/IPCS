@@ -168,13 +168,13 @@ int ipcs_get_sem(key_t key)
  *
  * sem_id: the id of the set of semaphore
  * val: the value to set all the semaphores with
- * sem_set_size: the size of the set of semaphore
+ * nb_sem: the number of semaphore inside the set
  *
  */
-int ipcs_sem_setAll(int sem_id, int val, size_t sem_set_size)
+int ipcs_sem_setAll(int sem_id, int val, int nb_sem)
 {
     int shmctl_ret;
-    ushort *tab = (ushort *)malloc(sizeof(sem_set_size));
+    ushort *tab = (ushort *)malloc(nb_sem * sizeof(ushort));
     if(tab == NULL)
     {
         return IPCS_NO_VAL;
