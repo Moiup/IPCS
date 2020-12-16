@@ -186,7 +186,6 @@ int ipcs_sem_setAll(int sem_id, int val, int nb_sem)
         tab[i] = val;
     }
 
-    fprintf(stdout, "%d\n", tab[0]);
     shmctl_ret = semctl(sem_id, IPCS_NONE, SETALL, tab);
     free(tab);
 
