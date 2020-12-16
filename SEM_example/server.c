@@ -50,7 +50,7 @@ int main(int argc, char **argv, char **envp)
     }
 
     // Setting the semaphore
-    if(ipcs_sem_setAll(sem_id, INIT_SEM_VAL, NB_SEM) == IPCS_NO_VAL)
+    if(ipcs_sem_setAll(sem_id, 1, 1) == IPCS_NO_VAL)
     {
         fprintf(stdout, "(server, main) Error setting the semaphore.\n");
         exit(EXIT_FAILURE);

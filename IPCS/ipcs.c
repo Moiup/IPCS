@@ -173,6 +173,7 @@ int ipcs_get_sem(key_t key)
  */
 int ipcs_sem_setAll(int sem_id, int val, int nb_sem)
 {
+    int i;
     int shmctl_ret;
     unsigned short *tab = (unsigned short *)malloc(nb_sem * sizeof(unsigned short));
     if(tab == NULL)
@@ -180,8 +181,13 @@ int ipcs_sem_setAll(int sem_id, int val, int nb_sem)
         return IPCS_NO_VAL;
     }
 
-    memset(tab, val, nb_sem * sizeof(unsigned short));
-    shmctl_ret = semctl(sem_id, val, SETALL, tab);
+    for(i = 0; i < nb_sem; ++i)
+    {
+        tab[i] = val;
+    }
+
+    fprintf(stdout, "%d\n", tab[0]);
+    shmctl_ret = semctl(sem_id, IPCS_NONE, SETALL, tab);
     free(tab);
 
     return shmctl_ret;

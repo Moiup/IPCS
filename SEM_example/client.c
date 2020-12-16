@@ -38,13 +38,13 @@ int main()
     }
 
     // Taking the semaphore
-    ipcs_sem_P(sem_id, NB_SEM_P);
+    ipcs_sem_P(sem_id, FIRST_SEM, NB_SEM_P);
     // Doing some action
     fprintf(stdout, "(client, main) Pocess %d got the sem. Waiting %d second.\n", getpid(), TIME_TO_WAIT);
     sleep(TIME_TO_WAIT);
     fprintf(stdout, "(client, main) Process %d releasing the sem.\n\n", getpid());
     // Releasing the semaphore
-    ipcs_sem_V(sem_id, NB_SEM_V);
+    ipcs_sem_V(sem_id, FIRST_SEM, NB_SEM_V);
 
 
     /*******************/

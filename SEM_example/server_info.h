@@ -22,6 +22,7 @@
 #define INIT_SEM_VAL 1
 #define NB_SEM_P 1
 #define NB_SEM_V 1
+#define FIRST_SEM 0
 
 #define NB_CHILD 5
 
