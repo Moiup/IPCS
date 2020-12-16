@@ -19,6 +19,8 @@
 
 #define IPCS_SEM_NB_OP 1
 
+#define IPCS_NONE 0
+
 /****************************/
 /* Key                      */
 /****************************/
@@ -101,12 +103,32 @@ int ipcs_create_sem(key_t key, int sem_size);
 int ipcs_get_sem(key_t key);
 
 /**
- * Create semaphore inside a set of semaphore
- * nb_sem: the number of semaphore to create
- * 
- * key: gotten by ipcs_get_key
-*/
-int ipcs_sem_set(int sem_id, int nb_sem);
+ * Set all the value of a set of semaphore
+ *
+ * sem_id: the id of the set of semaphore
+ * val: the value to set all the semaphores with
+ * sem_set_size: the size of the set of semaphore
+ *
+ */
+int ipcs_sem_setAll(int sem_id, int val, size_t sem_set_size);
+
+/**
+ * Set the value of the i-th semathore of the set
+ *
+ * sem_id: the id of the set of semaphore
+ * sem_i: the index of the semaphore to set its value
+ * val: the value that will take the semaphore
+ */
+int ipcs_sem_setVal(int sem_id, int sem_i, int val);
+
+/**
+ * Get the value of the i-th semaphore from a given set of semaphore
+ *
+ * sem_id: the id of the set of semaphore
+ * sem_i: the i-th semaphore to get its value
+ *
+ */
+int ipcs_sem_getVal(int sem_id, int sem_i);
 
 /**
  * Delete a set of semaphore

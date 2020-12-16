@@ -164,14 +164,51 @@ int ipcs_get_sem(key_t key)
 }
 
 /**
- * Create semaphore inside a set of semaphore
- * nb_sem: the number of semaphore to create
- * 
- * key: gotten by ipcs_get_key
-*/
-int ipcs_sem_set(int sem_id, int nb_sem)
+ * Set all the value of a set of semaphore
+ *
+ * sem_id: the id of the set of semaphore
+ * val: the value to set all the semaphores with
+ * sem_set_size: the size of the set of semaphore
+ *
+ */
+int ipcs_sem_setAll(int sem_id, int val, size_t sem_set_size)
 {
-    return semctl(sem_id, 0, SETVAL, nb_sem);
+    int shmctl_ret;
+    ushort *tab = (ushort *)malloc(sizeof(sem_set_size));
+    if(tab == NULL)
+    {
+        return IPCS_NO_VAL;
+    }
+
+    memset(tab, val, sem_set_size);
+    shmctl_ret = semctl(sem_id, val, SETALL, tab);
+    free(tab)
+
+    return shmctl_ret;
+}
+
+/**
+ * Set the value of the i-th semathore of the set
+ *
+ * sem_id: the id of the set of semaphore
+ * sem_i: the index of the semaphore to set its value
+ * val: the value that will take the semaphore
+ */
+int ipcs_sem_setVal(int sem_id, int sem_i, int val)
+{
+    return semctl(sem_id, sem_i, SETVAL, val);
+}
+
+/**
+ * Get the value of the i-th semaphore from a given set of semaphore
+ *
+ * sem_id: the id of the set of semaphore
+ * sem_i: the i-th semaphore to get its value
+ *
+ */
+int ipcs_sem_getVal(int sem_id, int sem_i)
+{
+    return semctl(sem_id, sem_i, GETVAL, NULL);
 }
 
 /**
@@ -182,7 +219,7 @@ int ipcs_sem_set(int sem_id, int nb_sem)
 */
 int ipcs_sem_rm(int sem_id)
 {
-    return semctl(sem_id, 0, IPC_RMID, NULL);
+    return semctl(sem_id, IPCS_NONE, IPC_RMID, NULL);
 }
 
 /**
@@ -193,7 +230,7 @@ int ipcs_sem_rm(int sem_id)
 */
 int ipcs_sem_P(int sem_id, int nb_sem)
 {
-    struct sembuf P = {0, -nb_sem, SEM_UNDO};
+    struct sembuf P = {IPCS_NONE, -nb_sem, SEM_UNDO};
     
     return semop(sem_id, &P, IPCS_SEM_NB_OP);
 }
@@ -206,7 +243,7 @@ int ipcs_sem_P(int sem_id, int nb_sem)
 */
 int ipcs_sem_V(int sem_id, int nb_sem)
 {
-    struct sembuf V = {0, nb_sem, SEM_UNDO};
+    struct sembuf V = {IPCS_NONE, nb_sem, SEM_UNDO};
     
     return semop(sem_id, &V, IPCS_SEM_NB_OP);
 }
