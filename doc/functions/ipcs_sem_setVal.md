@@ -1,25 +1,28 @@
 [Main menu](../../Readme.md)->[doc](../IPCS-doc.md)
 
-# ipcs_sem_rm(\_,\_)
+# ipcs_sem_setVal(\_,\_,\_)
 
-Set a number of semaphore inside a set of semaphore.
+Set a semaphore value.
 
 ## **Declaration**
 
 ```C
-int ipcs_sem_setAll(
-                    int sem_id, int val, int nb_sem)
+int ipcs_sem_setVal(
+                    int sem_id,
+                    int sem_i,
+                    int val
+                )
 ```
 
 ## **Parameters**
 **sem_id**  
 The semaphore set id. Created with [`ipcs_create_sem`](ipcs_create_sem.md) or retrieved with [`ipcs_get_sem`](ipcs_get_sem.md).
 
-**val** 
-The value to set all the semaphore with.
+**sem_i**  
+The index of the semaphore to set.
 
-**nb_sem**  
-The number of semaphore inside the set.
+**val**  
+The value to give to the semaphore.
 
 ## **Result**
 On error `IPCS_NO_VAL` is returned, `errno` indicate the error. For more info, you can check the [man page](https://man7.org/linux/man-pages/man2/semctl.2.html).
