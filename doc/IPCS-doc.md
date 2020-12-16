@@ -66,7 +66,7 @@ Set the value of a given semaphore from a given set. [More here.](./functions/ip
 ```C
 int ipcs_sem_getVal(int, int)
 ```
-Retrieve the value of a given semaphore from a given set.
+Retrieve the value of a given semaphore from a given set. [More here.](./functions/ipcs_sem_getVal.md)
 
 ```C
 int ipcs_sem_rm(int)
