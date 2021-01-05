@@ -7,6 +7,8 @@
  *
  * Author: Mohammed-Bashir Mahdi
  */
+#ifndef IPCS_H
+#define IPCS_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -156,3 +158,5 @@ int ipcs_sem_P(int sem_id, int sem_i, int n);
  * n: how much it is going to be increased (positive value)
 */
 int ipcs_sem_V(int sem_id, int sem_i, int n);
+
+#endif
